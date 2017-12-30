@@ -83,7 +83,7 @@ module ActionView::Helpers
         output << wrapped_block.gsub('__nested_field_for_replace_with_index__', index.to_s).html_safe
       end
 
-      output << nested_model_template(name, association_name, options, block)
+      output << nested_model_template(name, association_name, options, block) unless options.delete(:without_template)
       output
     end
 
